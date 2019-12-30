@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="BgMbMRTapMrRuLSFXuy9L3AktWu_YkXlCY6abB_Fxck">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://willwangcn.github.io').hostname,
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="Better to walk 10,000 miles than to read 10,000 books.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="敲代码的王二">
+<meta property="og:url" content="https://willwangcn.github.io/index.html">
+<meta property="og:site_name" content="敲代码的王二">
+<meta property="og:description" content="Better to walk 10,000 miles than to read 10,000 books.">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="敲代码的王二">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://willwangcn.github.io/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: true,
+    isPost: false
+  };
+</script>
+
+  <title>敲代码的王二</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-83375610-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-83375610-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">敲代码的王二</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en-US">
+    <link itemprop="mainEntityOfPage" href="https://willwangcn.github.io/bookreview/the-sentinel.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="敲代码的王二">
+      <meta itemprop="description" content="Better to walk 10,000 miles than to read 10,000 books.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="敲代码的王二">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/bookreview/the-sentinel.html" class="post-title-link" itemprop="url">无言的宇宙 - 《岗哨》有感</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-11-25 22:49:14" itemprop="dateCreated datePublished" datetime="2019-11-25T22:49:14+08:00">2019-11-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-12-25 23:47:52" itemprop="dateModified" datetime="2019-12-25T23:47:52+08:00">2019-12-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/bookreview/" itemprop="url" rel="index">
+                    <span itemprop="name">书评</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/bookreview/the-sentinel.html" class="post-meta-item leancloud_visitors" data-flag-title="无言的宇宙 - 《岗哨》有感" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/bookreview/the-sentinel.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/bookreview/the-sentinel.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>今天为大家推荐的是阿瑟·克拉克第二个短篇《岗哨》</p>
+<p>1948年，那时候阿波罗计划还未启动，人类刚刚走出战争，31岁的阿瑟·克拉克写下了一个发生在48年后的科幻故事——1996年月球考察团在危海的一座山峰上发现了高等文明建造的一个依旧在运行着的机器——这就是《岗哨》，一篇只有6500字的经典，它是科幻大师阿瑟·克拉克早期作品，其中很多思想、桥段在后来被扩充成了《2001：太空漫游》、《与罗摩相会》……虽然通过影视传播的力量，后面这些作品更加广为人知。《岗哨》收编在《神的九十亿个名字》短篇小说集里，这是我最喜欢的短篇之一，它能让你反复端详、欣赏，沉醉于它精巧而又宏大的时空之中。  </p>
+<p>这是一篇月球探险的故事，说是探险其实也并无什么险可探，因为在故事的立意之中，人类已经发展出了足够应付月球上的糟糕情况的高科技。作者以第一人称叙述，整个过程平淡如水，没有波折、没有争吵、没有硝烟炮火、更没有外星人，除了两句对话外，甚至连声音都没有，这个故事仿佛就是真空中的月球，你听不见它，但是，你能看见它——“刺目的阳光映射在这森严壁垒之上，反光足能灼伤人眼、但就在山峦上方不远处，比地球严冬的午夜还要墨黑的天空中，群星闪耀，光华持久不变”——一面是刺眼的阳光，刺眼到反光都足以灼伤人眼，一面是墨黑的天空，墨黑到比地球严冬的午夜还要墨黑，这光明和黑暗的对比让人感到既诡异又苍凉，背景中的群星与山峦让人感到既壮丽又寂寥；你还能看见——“我们刚刚经过的月球大地，曾是一片浩瀚的海洋，水深可达半英里，如今却是潮汐不再。水分留下的唯一痕迹，仅剩点点白霜，但也只能在炽热的阳光从未染指的洞穴中偶然得见。”——通过这些描述让人感受到的，不仅有月球的现在，还有它的过去，似乎看得到，主人公一行人正行走在数亿年无人踏足过的月球大地上……  </p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/bookreview/the-sentinel.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+    <script data-ad-client="ca-pub-3096349003464597" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en-US">
+    <link itemprop="mainEntityOfPage" href="https://willwangcn.github.io/bookreview/the-kingdom-and-the-power.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="敲代码的王二">
+      <meta itemprop="description" content="Better to walk 10,000 miles than to read 10,000 books.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="敲代码的王二">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/bookreview/the-kingdom-and-the-power.html" class="post-title-link" itemprop="url">王国与权力</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-11-20 22:51:08" itemprop="dateCreated datePublished" datetime="2019-11-20T22:51:08+08:00">2019-11-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-12-25 23:49:49" itemprop="dateModified" datetime="2019-12-25T23:49:49+08:00">2019-12-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/bookreview/" itemprop="url" rel="index">
+                    <span itemprop="name">书评</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/bookreview/the-kingdom-and-the-power.html" class="post-meta-item leancloud_visitors" data-flag-title="王国与权力" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/bookreview/the-kingdom-and-the-power.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/bookreview/the-kingdom-and-the-power.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>今天不是要推荐这本书，而是要打算开启吐槽模式。</p>
+<p>本书推荐度： ⭐⭐⭐</p>
+<ol>
+<li>首先简单介绍一下这本书吧，看这个封面上大大的 The New York Times， 大概率会觉得这是一部介绍纽约时报的传记书籍？或者说纽约时报的兴衰史？又或者是纽约时报各个时代的掌门人？答案是不，这本书并不是以纽约时报为主线进行叙事，也没有主角。而是在特定时期写几个人物在特定时间完成了什么样的任务就结束了。后面大概率可能这个人物就寿终正寝了，没有出场了。当然书中还是有个别比较重要的人物还是写了比较长的篇幅。</li>
+</ol>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/bookreview/the-kingdom-and-the-power.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+    <script data-ad-client="ca-pub-3096349003464597" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en-US">
+    <link itemprop="mainEntityOfPage" href="https://willwangcn.github.io/bookreview/ottoman-centuries.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="敲代码的王二">
+      <meta itemprop="description" content="Better to walk 10,000 miles than to read 10,000 books.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="敲代码的王二">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/bookreview/ottoman-centuries.html" class="post-title-link" itemprop="url">奥斯曼帝国六百年</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-11-07 22:50:35" itemprop="dateCreated datePublished" datetime="2019-11-07T22:50:35+08:00">2019-11-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-12-25 23:48:20" itemprop="dateModified" datetime="2019-12-25T23:48:20+08:00">2019-12-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/bookreview/" itemprop="url" rel="index">
+                    <span itemprop="name">书评</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/bookreview/ottoman-centuries.html" class="post-meta-item leancloud_visitors" data-flag-title="奥斯曼帝国六百年" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/bookreview/ottoman-centuries.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/bookreview/ottoman-centuries.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>今天为大家推荐的是一部介绍奥斯曼帝国历史的图书《奥斯曼帝国六百年-土耳其帝国的兴衰》。我利用上下班乘车时间断断续续看了大约有两三周时间，终于把这本书啃下来了，作者主要讲了各个苏丹之间干了做了什么、取得什么成就以及奥斯曼帝国版图的变化（如果不拿出地图对比一下版图变化，应该很难感受到帝国的兴衰） </p>
+<p>先说看完本书之后的第一感觉吧，站在道德制高点的西方国家们，历史上就对东方国家充满恶意，对中国如此，对土耳其（书中称土耳其为欧洲病夫）也不例外。称东方国家为野蛮民族，殊不知东方国家发展文明的时候，西方国家可能还在茹毛饮血。奥斯曼帝国末期跟清朝末期是何等相似，都是决定师夷长技以制夷，然而积重难返的帝国却无力回天。</p>
+<p>作者对于奥斯曼帝国的整体历史的讲解的比较完整，当然不失广度与深度，当然书中作者某些观点也是比较主观或者站在西方人立场上，比如作者对奥斯曼帝国末期的理解，将各个西方国家对于大国沙文主义当成了对奥斯曼满满的善意。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/bookreview/ottoman-centuries.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+    <script data-ad-client="ca-pub-3096349003464597" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en-US">
+    <link itemprop="mainEntityOfPage" href="https://willwangcn.github.io/bookreview/the-nine-billion-names-of-god.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="敲代码的王二">
+      <meta itemprop="description" content="Better to walk 10,000 miles than to read 10,000 books.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="敲代码的王二">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/bookreview/the-nine-billion-names-of-god.html" class="post-title-link" itemprop="url">神的九十亿个名字</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2019-06-14 22:44:52" itemprop="dateCreated datePublished" datetime="2019-06-14T22:44:52+08:00">2019-06-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-12-30 23:23:10" itemprop="dateModified" datetime="2019-12-30T23:23:10+08:00">2019-12-30</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/bookreview/" itemprop="url" rel="index">
+                    <span itemprop="name">书评</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/bookreview/the-nine-billion-names-of-god.html" class="post-meta-item leancloud_visitors" data-flag-title="神的九十亿个名字" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/bookreview/the-nine-billion-names-of-god.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/bookreview/the-nine-billion-names-of-god.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p> 本期推荐给大家是阿瑟克拉克的《神的九十亿个名字》，本书本身是短篇小说集，除了题目包含的短篇还有很多有意思的短篇。最后一段岗哨真的有《2001》的感觉。每篇小短文都写得各有特色，尤其是兰花那一篇实在是太萌了。</p>
+<p> 《神的九十亿个名字》这个短篇讲了西藏的一个寺院向一个公司订购了一台计算机，希望用这台计算机计算打印神的名字（字母排列与组合）——他们已经人工操作三个世纪了。公司派去两名员工做设备维护，在快结束的时候，他们得知了寺院抄写神的名字的真正用意：人的使命就是把神的九十亿个名字列出来，一旦完成，就是世界末日。当然，这两个人是不相信的，他们觉得如果完成了名字的打印后，还没有世界末日，和尚可能会恼羞成怒，因此他们拖延完成时间，希望和尚发现不好的时候，他们已经上飞机了。结果出乎意料，在他们下山的路上，世界末日来了。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/bookreview/the-nine-billion-names-of-god.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+    <script data-ad-client="ca-pub-3096349003464597" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en-US">
+    <link itemprop="mainEntityOfPage" href="https://willwangcn.github.io/bookreview/the-minds-of-billy-millgan.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="敲代码的王二">
+      <meta itemprop="description" content="Better to walk 10,000 miles than to read 10,000 books.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="敲代码的王二">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/bookreview/the-minds-of-billy-millgan.html" class="post-title-link" itemprop="url">请尊重每一个人格</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2016-11-30 21:59:29" itemprop="dateCreated datePublished" datetime="2016-11-30T21:59:29+08:00">2016-11-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-12-25 22:41:34" itemprop="dateModified" datetime="2019-12-25T22:41:34+08:00">2019-12-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/bookreview/" itemprop="url" rel="index">
+                    <span itemprop="name">书评</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/bookreview/the-minds-of-billy-millgan.html" class="post-meta-item leancloud_visitors" data-flag-title="请尊重每一个人格" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/bookreview/the-minds-of-billy-millgan.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/bookreview/the-minds-of-billy-millgan.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>读本书的缘由是先看了本书作者的另一本书《献给阿尔吉侬的花束》，了解作者之后突然发现小李要出演作者的《24个比利》，怀着好奇的心读完本书。一开始读本书还是拒绝的，前几章确实有点乏味，简单的叙述比利的一些事迹。中途有很多次想要放弃换新书，读到第二部对于比利的人格诞生过程展开之后才渐渐被吸引。总体来说四颗星，很值得一看，尤其是对小李电影《拥挤的房间》（24个小李子，尤其是还有女性人格）有所期待的同学可以选择一看。</p>
+<p>读完本书，心情很沉重，虽然比利最终被判无罪，但是判决后不尊重专家意见而官僚化非正常治疗让人久久难以释怀。媒体与政客站在道德制高点干预司法判决，这种纪实小说明显反映出西方的月亮不是那么圆的，人权简直一个玩笑。大众不关心你的成长经历，只注重结果，无形中的舆论深深刺伤了比利已见好转的人格。</p>
+<p>最后附上本书的真实存在的人物的维基：<a href="https://zh.wikipedia.org/wiki/%E5%A8%81%E5%BB%89%C2%B7%E5%AF%86%E9%87%8C%E6%A0%B9" target="_blank" rel="noopener">威廉·密里根</a></p>
+<p><img src="../images/qrcode.jpg" alt="欢迎关注我的公众号"></p>
+
+      
+    </div>
+
+    
+    
+    
+    <script data-ad-client="ca-pub-3096349003464597" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en-US">
+    <link itemprop="mainEntityOfPage" href="https://willwangcn.github.io/bookreview/becoming-steve-jobs.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="敲代码的王二">
+      <meta itemprop="description" content="Better to walk 10,000 miles than to read 10,000 books.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="敲代码的王二">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/bookreview/becoming-steve-jobs.html" class="post-title-link" itemprop="url">走下"神坛"的乔布斯</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2016-10-28 12:49:20" itemprop="dateCreated datePublished" datetime="2016-10-28T12:49:20+08:00">2016-10-28</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-12-25 23:49:06" itemprop="dateModified" datetime="2019-12-25T23:49:06+08:00">2019-12-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/bookreview/" itemprop="url" rel="index">
+                    <span itemprop="name">书评</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/bookreview/becoming-steve-jobs.html" class="post-meta-item leancloud_visitors" data-flag-title="走下"神坛"的乔布斯" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/bookreview/becoming-steve-jobs.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/bookreview/becoming-steve-jobs.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>本期推荐的图书是《Becoming Steve Jobs》，个人感觉这本书比艾萨克森的《乔布斯传》描写的乔布斯更像是一个真实存在的人物。虽然《乔布斯传》是官方授权，但是本书作者之前一直采访乔布斯，在书中隐约可以感受到作者是乔布斯为数不多的朋友之一。为了成书，本书作者采访了乔布斯生前各位好友，包括比尔·盖茨，拉里·埃里森（Oracle CEO)，乔纳森·埃维（Apple’s Chief Design Officer），约翰·拉塞特（Pixar），埃德·卡特穆尔（乔布斯人生导师之一）。所以本书的可信度高，高度还原了一个真实存在的乔布斯。<br>本书作者联合采访过比尔盖茨，乔布斯，正是那次采访才出现了经典的两人合照。<br><img src="/images/steveandbill.jpg" alt="Steve Jobs and Bill Gates"><br>书中介绍当时拍照时的趣闻：</p>
+<blockquote>
+<p>乔治·兰格一直拿着相机在两人身边转来转去拍照，现在采访结束了，他要拍摄一张封面照片。我们的时间不多了，比尔坚持要赶去旧金山机场搭乘航班返回西雅图。乔治本来想在室外拍摄，不过最后决定在室内客厅通往二楼的楼梯处拍摄更合适。他向两位解释了原因，比尔向来不太在意拍照的事，只要快点拍完就行。但史蒂夫向来认为自己是位自学成才的艺术家，我为《财富》杂志做史蒂夫专访时，和他之间争论最激烈的部分往往是照片。史蒂夫对于文章配图的风格想法很多，特别是放在封面的肖像照。他对于自己的照片挑剔颇多，不仅要挑剔摄影师，还要挑剔照片的取景和构图。不过这一次，他并没有多说什么，径直走上了红黏土阶梯，一屁股坐了下去。乔治看了他一眼，惊叫道，“史蒂夫，你没穿鞋！我们在为《财富》拍封面照片，你能去穿双鞋吗？”史蒂夫耸耸肩，说道，“好吧。”他跑上楼，抓了一双运动鞋，又跑回来把鞋套上，没有系鞋带。</p>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/bookreview/becoming-steve-jobs.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+    <script data-ad-client="ca-pub-3096349003464597" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en-US">
+    <link itemprop="mainEntityOfPage" href="https://willwangcn.github.io/moviereview/detachment.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="敲代码的王二">
+      <meta itemprop="description" content="Better to walk 10,000 miles than to read 10,000 books.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="敲代码的王二">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/moviereview/detachment.html" class="post-title-link" itemprop="url">我的灵魂和我距离如此遥远，而我的存在却如此真实</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2016-10-16 13:32:55" itemprop="dateCreated datePublished" datetime="2016-10-16T13:32:55+08:00">2016-10-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-12-25 23:50:11" itemprop="dateModified" datetime="2019-12-25T23:50:11+08:00">2019-12-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/moviereview/" itemprop="url" rel="index">
+                    <span itemprop="name">影评</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/moviereview/detachment.html" class="post-meta-item leancloud_visitors" data-flag-title="我的灵魂和我距离如此遥远，而我的存在却如此真实" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/moviereview/detachment.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/moviereview/detachment.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p><img src="/images/detachment.png" alt="Camus"><br>《超脱》是一部哲学与文学气息浓厚的电影，对我来说是很震撼的电影，看完之后不是关心主角是否超脱，而是关心剧中角色的结局。片子一开头就显示出本剧的高逼格，引用加缪的一句话，直接定位本片的基调。</p>
+<blockquote>
+<p>And never have I felt so deeply at one and the same time, So detached from myself and so present in the world. - Albert Camus<br>这种感觉从未在我身上如此刻骨的发生过，我的灵魂和我距离如此遥远，而我的存在却如此真实。—— 加缪</p>
+</blockquote>
+<p>不说电影的具体细节，也不说教育体制的问题。<br>我理解本片是每个人心中都有不同的chaos，每个人都必须面对，我们早上把它带出门，晚上又带回家。<br>然后导演塑造了一帮被问题困住的人物：学生不被家长关心，不被认同的孤独感；老师不被学生尊重的挫败感；主角因童年阴影而造成内心自闭。每个人都有自己的解决方法。<br>男主选择冷漠的对待一切问题，即便是将失足少女带回家，也许只是出于本能的同情吧，最后还是将她送走，也许是因为害怕自己投入太多的感情，害怕自己会重蹈童年阴影的覆辙。整部片子比较压抑，到处充斥着孤独的压抑感，男主最后也没有走出来，将自己内心筑起高高的墙，彻底的detach在外围世界。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/moviereview/detachment.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+    <script data-ad-client="ca-pub-3096349003464597" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en-US">
+    <link itemprop="mainEntityOfPage" href="https://willwangcn.github.io/bookreview/cakes-and-ale.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="敲代码的王二">
+      <meta itemprop="description" content="Better to walk 10,000 miles than to read 10,000 books.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="敲代码的王二">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/bookreview/cakes-and-ale.html" class="post-title-link" itemprop="url">你以为你道德高尚，就不寻欢作乐了么?</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2016-10-08 14:17:08" itemprop="dateCreated datePublished" datetime="2016-10-08T14:17:08+08:00">2016-10-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-12-25 22:41:04" itemprop="dateModified" datetime="2019-12-25T22:41:04+08:00">2019-12-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/bookreview/" itemprop="url" rel="index">
+                    <span itemprop="name">书评</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/bookreview/cakes-and-ale.html" class="post-meta-item leancloud_visitors" data-flag-title="你以为你道德高尚，就不寻欢作乐了么?" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/bookreview/cakes-and-ale.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/bookreview/cakes-and-ale.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="书评"><a href="#书评" class="headerlink" title="书评"></a>书评</h2><p>“你以为你道德高尚，就不寻欢作乐了么?”出自《寻欢作乐》。《寻欢作乐》是毛姆本人最得意之作，写尽文艺圈风流与繁华，但是不改毛姆本人尖酸刻薄与对人的冷嘲热讽。如果你喜欢毛姆的讥诮，这本书是很合适的。如果不喜欢也可以看下读书笔记，或许你就爱上这本书了。</p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>上个世纪的英国作家中，毛姆也许不是最伟大的，却无疑是最雅俗共赏、最令读者喜爱的一位。《寻欢作乐》是他的得意之作。他一改以往作品中对女性的偏见，以爱慕者的身份来追忆一个美丽女人的一生，点缀以许多文艺圈中的韵事逸闻。大作家德里菲尔德去世后，他妻子请人为他立传。小说的叙述者阿申登被传记作者请来回忆当年和作家的交往，故事由此展开，在阿申登的记忆深处，我们发现了作家的前妻，迷人的罗西，她生性风流，处处留情，却不失善良坦诚与可爱……<br>擅讲故事的毛姆将不少真人实事拼帖裁剪，虚实相掺。阅读本书的一大乐趣在于，你在紧盯故事不舍的同时，会冷不丁瞥见某个熟悉的侧影，或是哈代，或是毛姆本人。可凝神一看，又不是。像是走在路上认错了人。这种蓄意制造的愉快的小误会，配上作者冷淡讥诮，优雅细腻的文风，使小说别有意趣。</p>
+<h2 id="读书笔记"><a href="#读书笔记" class="headerlink" title="读书笔记"></a>读书笔记</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/bookreview/cakes-and-ale.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+    <script data-ad-client="ca-pub-3096349003464597" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en-US">
+    <link itemprop="mainEntityOfPage" href="https://willwangcn.github.io/bookreview/the-shortest-history-of-europe.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="敲代码的王二">
+      <meta itemprop="description" content="Better to walk 10,000 miles than to read 10,000 books.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="敲代码的王二">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/bookreview/the-shortest-history-of-europe.html" class="post-title-link" itemprop="url">极简欧洲史|欧洲国王的憋屈史</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2016-09-26 08:45:06" itemprop="dateCreated datePublished" datetime="2016-09-26T08:45:06+08:00">2016-09-26</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-12-25 22:42:46" itemprop="dateModified" datetime="2019-12-25T22:42:46+08:00">2019-12-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/bookreview/" itemprop="url" rel="index">
+                    <span itemprop="name">书评</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/bookreview/the-shortest-history-of-europe.html" class="post-meta-item leancloud_visitors" data-flag-title="极简欧洲史|欧洲国王的憋屈史" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/bookreview/the-shortest-history-of-europe.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/bookreview/the-shortest-history-of-europe.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="书评"><a href="#书评" class="headerlink" title="书评"></a>书评</h2><p>《极简欧洲史》这本书不是与传统的正史编写方式不同，既不是编年史，也不是纪传体。其主要方式与黄仁宇的大历史观一致，即作者通过三个宏观主因（古希腊罗马文化，日耳曼民族，基督教）将欧洲史的发展融会贯通，发掘各个主因之间的相互关系，从而揭露欧洲如何发展为现代欧洲的问题。<br>纵观基督教整体发展，尤其到了中世纪宗教文明的顶峰。欧洲国王简直就是一段憋屈史，甚至可以说是屈辱史。国王需要被教皇“祝圣”以达成“君权神授”，一言不合就被教皇革除教籍。国王权力分散，强敌环伺但是无力调动自己领地的各个领主。这与我中国皇帝“普天之下，莫非王土。率土之滨，莫非王臣。”的状态完全相反。不过正是由于欧洲各国之间相互为敌，才成功推动他们向海外扩张。<br>​总体来说，如果想要了解欧洲发展史又不想看正史，而且这本书的电子书也不贵，可以考虑一下。总体评价四星。</p>
+<h2 id="本书简介"><a href="#本书简介" class="headerlink" title="本书简介"></a>本书简介</h2><p>“欧洲，为什么老是抢第一？”澳大利亚知名历史学家约翰•赫斯特在本书中的一场引人入胜的探索，为我们梳理出欧洲文明所以能改变全世界的各种特质。<br>作者从三大元素：古希腊罗马文化、基督教教义以及日耳曼战士文化开篇，描述了这三大元素如何彼此强化，又相互对立，最终形塑为欧洲文明的内 核；继而在诸多世纪以来催生帝国与城邦，激发征服与十字军东侵，造就出许多性格截然分明的人物──如仁慈的皇帝、好斗的教皇、侠义的骑士，乃至世上第一批享受繁荣和启蒙果实的公民。哲学思维、民主制度的渊源、政治权力的传递、甚至是医学、生物学使用拉丁文的源始，这种种欧洲因素不断形塑了现代文明的各种特质，使欧洲遥遥走在现代世界的前列。<br>本书以清晰、幽默、发人深省的笔调，杂以活泼的插图，叙述了一个不同凡响的文明，及其对人类社会的巨大冲击与巨大贡献。</p>
+<h2 id="读书笔记"><a href="#读书笔记" class="headerlink" title="读书笔记"></a>读书笔记</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/bookreview/the-shortest-history-of-europe.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+    <script data-ad-client="ca-pub-3096349003464597" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="en-US">
+    <link itemprop="mainEntityOfPage" href="https://willwangcn.github.io/bookreview/the-moon-and-sixpence.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="敲代码的王二">
+      <meta itemprop="description" content="Better to walk 10,000 miles than to read 10,000 books.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="敲代码的王二">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/bookreview/the-moon-and-sixpence.html" class="post-title-link" itemprop="url">【短评&笔记】月亮和六便士</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2016-09-17 11:12:40" itemprop="dateCreated datePublished" datetime="2016-09-17T11:12:40+08:00">2016-09-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2019-12-25 22:41:38" itemprop="dateModified" datetime="2019-12-25T22:41:38+08:00">2019-12-25</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/bookreview/" itemprop="url" rel="index">
+                    <span itemprop="name">书评</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/bookreview/the-moon-and-sixpence.html" class="post-meta-item leancloud_visitors" data-flag-title="【短评&笔记】月亮和六便士" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine: </span>
+    
+    <a title="valine" href="/bookreview/the-moon-and-sixpence.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/bookreview/the-moon-and-sixpence.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote>
+<p><strong><font color='red'>本文首发于我的公众号: dark_forests，请扫描文章尾部的二维码直接关注，谢谢。</font></strong></p>
+</blockquote>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>一个英国证券交易所的经纪人，本已有牢靠的职业和地位、美满的家庭，但却迷恋上绘画，像“被魔鬼附了体”，突然弃家出走，到巴黎去追求绘画的理想。他的行径没有人能够理解。他在异国不仅肉体受着贫穷和饥饿煎熬，而且为了寻找表现手法，精神亦在忍受痛苦折磨。经过一番离奇的遭遇后，主人公最后离开文明世界，远遁到与世隔绝的塔希提岛上。他终于找到灵魂的宁静和适合自己艺术气质的氛围。他同一个土著女子同居，创作出一幅又一幅使后世震惊的杰作。在他染上麻风病双目失明之前，曾在自己住房四壁画了一幅表现伊甸园的伟大作品。但在逝世之前，他却命令土著女子在他死后把这幅画作付之一炬。通过这样一个一心追求艺术、不通人性世故的怪才，毛姆探索了艺术的产生与本质、个性与天才的关系、艺术家与社会的矛盾等等引人深思的问题。同时这本书也引发了人们对摆脱世俗束缚逃离世俗社会寻找心灵家园这一话题的思考，而关于南太平洋小岛的自然民风的描写也引人向往。<br>《月亮和六便士》小说问世后，以情节入胜、文字深刻在文坛轰动一时，人们争相传看。在小说中，毛姆用第一人称的叙述手法，借“我”之口，叙述整个故事，有人认为这篇小说的原型是法国印象派画家高更，这更增加了它的传奇色彩，受到了全世界读者的关注。</p>
+<h2 id="短评"><a href="#短评" class="headerlink" title="短评"></a>短评</h2><p>一开始看这名字有点懵逼，这两个东西有何相关性啊（类似有乌克兰拖拉机简史，士兵如何修理留声机）。看完之后到维基看了一下毛姆自己的起名原因：If you look on the ground in search of a sixpence, you don’t look up, and so miss the moon.《月亮和六便士》名字中的月亮代表的是理想中的美好，是一种追求。六便士则是现实生活中的一个人无法改变而需面对的残酷社会。<br>PS:毛姆太喜欢剖析人性了，写几段就自己闲着没事剖析一下。感觉这篇小说大部分内容还是自我检讨与自我发现啊。可以封一个吐槽小王子的称号。</p>
+<h2 id="读书笔记"><a href="#读书笔记" class="headerlink" title="读书笔记"></a>读书笔记</h2>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/bookreview/the-moon-and-sixpence.html#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+    <script data-ad-client="ca-pub-3096349003464597" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+  </div>
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="敲代码的王二"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">敲代码的王二</p>
+  <div class="site-description" itemprop="description">Better to walk 10,000 miles than to read 10,000 books.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/318760999" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;318760999" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/willwangv" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;willwangv" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+      </span>
+  </div>
+
+
+
+      </div>
+    
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">敲代码的王二</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        Total Views: <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+  <script>
+  function leancloudSelector(url) {
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = visitors.getAttribute('id').trim();
+      var title = visitors.getAttribute('data-flag-title').trim();
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+              .catch(error => {
+                console.log('Failed to save visitor count', error);
+              })
+          } else {
+              Counter('post', '/classes/Counter', { title: title, url: url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.log('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return element.getAttribute('id').trim();
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (let item of results) {
+            let { url, time } = item;
+            leancloudSelector(url).innerText = time;
+          }
+          for (let url of entries) {
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=2inQvetpJOU9pFYSTnAmgeA6-gzGzoHsz')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': '2inQvetpJOU9pFYSTnAmgeA6-gzGzoHsz',
+            'X-LC-Key': 'evVnTRdfNeeDNCaHk5kAdpdV',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el: '#valine-comments',
+      verify: false,
+      notify: false,
+      appId: '2inQvetpJOU9pFYSTnAmgeA6-gzGzoHsz',
+      appKey: 'evVnTRdfNeeDNCaHk5kAdpdV',
+      placeholder: "Just go go",
+      avatar: 'mm',
+      meta: guest,
+      pageSize: '10' || 10,
+      visitor: false,
+      lang: 'en' || 'zh-cn',
+      path: location.pathname,
+      recordIP: false,
+      serverURLs: ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
