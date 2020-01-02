@@ -28,7 +28,7 @@
     sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
     copycode: {"enable":false,"show_result":false,"style":null},
     back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
-    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    bookmark: {"enable":true,"color":"#222","save":"auto"},
     fancybox: false,
     mediumzoom: false,
     lazyload: false,
@@ -57,7 +57,7 @@
 <meta property="og:image" content="https://willwangcn.github.io/images/qrcode.jpg">
 <meta property="article:published_time" content="2016-11-30T13:59:29.000Z">
 <meta property="article:modified_time" content="2020-01-02T15:17:21.917Z">
-<meta property="article:author" content="敲代码的王二">
+<meta property="article:author" content="Weiwei">
 <meta property="article:tag" content="心理">
 <meta property="article:tag" content="纪实">
 <meta name="twitter:card" content="summary">
@@ -115,6 +115,7 @@
   </style>
 </noscript>
 
+<link rel="alternate" href="/atom.xml" title="敲代码的王二" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -183,6 +184,8 @@
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
 
 
     <main class="main">
@@ -202,7 +205,7 @@
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
-      <meta itemprop="name" content="敲代码的王二">
+      <meta itemprop="name" content="Weiwei">
       <meta itemprop="description" content="Better to walk 10,000 miles than to read 10,000 books.">
     </span>
 
@@ -285,8 +288,13 @@
   <div id="qr" style="display: none;">
       
       <div style="display: inline-block;">
-        <img src="/images/pay.png" alt="敲代码的王二 WeChat Pay">
+        <img src="/images/pay.png" alt="Weiwei WeChat Pay">
         <p>WeChat Pay</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/bitcoin.jpg" alt="Weiwei Bitcoin">
+        <p>Bitcoin</p>
       </div>
 
   </div>
@@ -297,7 +305,7 @@
 <div>
 <ul class="post-copyright">
   <li class="post-copyright-author">
-    <strong>Post author:  </strong>敲代码的王二
+    <strong>Post author:  </strong>Weiwei
   </li>
   <li class="post-copyright-link">
     <strong>Post link: </strong>
@@ -393,9 +401,9 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="敲代码的王二"
+    <img class="site-author-image" itemprop="image" alt="Weiwei"
       src="/images/avatar.jpeg">
-  <p class="site-author-name" itemprop="name">敲代码的王二</p>
+  <p class="site-author-name" itemprop="name">Weiwei</p>
   <div class="site-description" itemprop="description">Better to walk 10,000 miles than to read 10,000 books.</div>
 </div>
 <div class="site-state-wrap motion-element">
@@ -428,6 +436,9 @@
       <span class="links-of-author-item">
         <a href="https://instagram.com/willwangv" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;willwangv" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
       </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i>RSS</a>
+      </span>
   </div>
   <div class="cc-license motion-element" itemprop="license">
     <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
@@ -456,7 +467,7 @@
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">敲代码的王二</span>
+  <span class="author" itemprop="copyrightHolder">Weiwei</span>
 </div>
 
         
@@ -590,6 +601,8 @@
 
 
 <script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
 
 
 
