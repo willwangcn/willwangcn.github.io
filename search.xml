@@ -105,6 +105,93 @@
       </tags>
   </entry>
   <entry>
+    <title>Awk Special Pattern - Begin &amp; END</title>
+    <url>/tech/awk-special-patterns.html</url>
+    <content><![CDATA[<h2 id="Awk"><a href="#Awk" class="headerlink" title="Awk"></a>Awk</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># how to use awk</span></span><br><span class="line">awk <span class="string">'script'</span> filename</span><br></pre></td></tr></table></figure>
+
+<h2 id="Special-Pattern"><a href="#Special-Pattern" class="headerlink" title="Special Pattern"></a>Special Pattern</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/pattern/ &#123; actions &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Begin-amp-END"><a href="#Begin-amp-END" class="headerlink" title="Begin &amp; END"></a>Begin &amp; END</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">awk <span class="string">'</span></span><br><span class="line"><span class="string">BEGIN &#123; actions &#125;</span></span><br><span class="line"><span class="string">/pattern/ &#123; actions &#125;</span></span><br><span class="line"><span class="string">/pattern/ &#123; actions &#125;</span></span><br><span class="line"><span class="string">END &#123; actions &#125;</span></span><br><span class="line"><span class="string">'</span> filenames</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>BEGIN { actions }<br>在读取任何输入前执行一次 <strong>actions</strong></li>
+<li>END { actions }<br>读取所有输入之后执行一次 <strong>actions</strong></li>
+</ul>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># e.g.: calculate average of some column</span></span><br><span class="line">awk -F<span class="string">'\t'</span> <span class="string">'BEGIN&#123;sum = 0;&#125;&#123;sum += $1;&#125; END&#123;print sum/NR&#125;'</span> filename</span><br></pre></td></tr></table></figure>
+
+<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ul>
+<li><p>表达式 { 语句 }<br>对于<strong>表达式</strong>为真（即，非零或非空）的行，执行语句</p>
+</li>
+<li><p>/正则表达式/ { 语句 }<br>如果输入行包含字符串与<strong>正则表达式</strong>相匹配，则执行 语句</p>
+</li>
+<li><p>组合模式 { 语句 }<br>一个<strong>组合模式</strong>通过与（&amp;&amp;），或（||），非（|），以及括弧来组合多个表达式；对于组合模式为真的每个输入行，执行语句</p>
+</li>
+<li><p>模式1，模式2 { 语句 }<br>范围模式(range pattern)匹配从与<strong>模式1</strong>相匹配的行到与<strong>模式2</strong>相匹配的行（包含该行）之间的所有行，对于这些输入行，执行语句。</p>
+</li>
+</ul>
+<p>BEGIN和END不与其他模式组合。范围模式不可以是任何其他模式的一部分。BEGIN和END是仅有的必须搭配动作的模式。</p>
+]]></content>
+      <categories>
+        <category>Technology</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>xargs命令处理多参数</title>
+    <url>/tech/xargs-command.html</url>
+    <content><![CDATA[<h2 id="xargs单参数"><a href="#xargs单参数" class="headerlink" title="xargs单参数"></a>xargs单参数</h2><p>xargs通常我们用来处理流数据，比如说批量kill python脚本，或者批量删除文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ps aux|grep python|awk <span class="string">'&#123;print $2&#125;'</span>|xargs <span class="built_in">kill</span></span><br><span class="line">find . -name <span class="string">"*.log"</span>|xargs rm -rf</span><br></pre></td></tr></table></figure>
+
+<h2 id="xargs多参数"><a href="#xargs多参数" class="headerlink" title="xargs多参数"></a>xargs多参数</h2><p>通常情况下我们用xargs处理一个参数即可，但是有时候我们需要批量重命名或者批量改后缀。我们则需要深入的了解xargs<br>-t 输出当前运行的命令<br>-I 表示把当前处理的参数用{}表示，这样后续的命令可以用{}来处理。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 批量改后缀</span></span><br><span class="line">find . -name <span class="string">"*.txt"</span>|awk -F<span class="string">'.txt'</span> <span class="string">'&#123;print $1&#125;'</span>|xargs -t -I &#123;&#125; cp &#123;&#125;.txt &#123;&#125;.<span class="built_in">log</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>批量改后缀的结果输出如下</li>
+</ul>
+<pre>
+cp ./1.txt ./1.log
+cp ./2.txt ./2.log
+cp ./3.txt ./3.log
+</pre>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 踢掉正在线上的所有用户</span></span><br><span class="line">who|awk <span class="string">'&#123;print $2&#125;'</span>|xargs -t -I &#123;&#125; pkill -<span class="built_in">kill</span> -t &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>批量踢掉正在线上的所有用户的输出如下</li>
+</ul>
+<pre>
+pkill -kill -t pts/0
+pkill -kill -t pts/2
+pkill -kill -t pts/3
+pkill -kill -t pts/4
+pkill -kill -t pts/5
+pkill -kill -t pts/6
+pkill -kill -t pts/7
+pkill -kill -t pts/8
+pkill -kill -t pts/9
+pkill -kill -t pts/10
+pkill -kill -t pts/11
+pkill -kill -t pts/12
+pkill -kill -t pts/13
+pkill -kill -t pts/14
+pkill -kill -t pts/15
+pkill -kill -t pts/16
+pkill -kill -t pts/17
+pkill -kill -t pts/18
+pkill -kill -t pts/19
+</pre>]]></content>
+      <categories>
+        <category>Technology</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Shell</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>走下&quot;神坛&quot;的乔布斯</title>
     <url>/bookreview/becoming-steve-jobs.html</url>
     <content><![CDATA[<p>本期推荐的图书是《Becoming Steve Jobs》，个人感觉这本书比艾萨克森的《乔布斯传》描写的乔布斯更像是一个真实存在的人物。虽然《乔布斯传》是官方授权，但是本书作者之前一直采访乔布斯，在书中隐约可以感受到作者是乔布斯为数不多的朋友之一。为了成书，本书作者采访了乔布斯生前各位好友，包括比尔·盖茨，拉里·埃里森（Oracle CEO)，乔纳森·埃维（Apple’s Chief Design Officer），约翰·拉塞特（Pixar），埃德·卡特穆尔（乔布斯人生导师之一）。所以本书的可信度高，高度还原了一个真实存在的乔布斯。<br>本书作者联合采访过比尔盖茨，乔布斯，正是那次采访才出现了经典的两人合照。<br><img src="/images/steveandbill.jpg" alt="Steve Jobs and Bill Gates"><br>书中介绍当时拍照时的趣闻：</p>

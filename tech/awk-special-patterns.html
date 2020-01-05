@@ -47,17 +47,21 @@
   };
 </script>
 
-  <meta name="description" content="Better to walk 10,000 miles than to read 10,000 books.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="敲代码的王二">
-<meta property="og:url" content="https://willwangcn.github.io/archives/2019/index.html">
+  <meta name="description" content="Awk12# how to use awkawk &#39;script&#39; filename  Special Pattern1&#x2F;pattern&#x2F; &amp;#123; actions &amp;#125;  Begin &amp; END123456awk &#39;BEGIN &amp;#123; actions &amp;#125;&#x2F;pattern&#x2F; &amp;#123; actions &amp;#125;&#x2F;pattern&#x2F; &amp;#123; action">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Awk Special Pattern - Begin &amp; END">
+<meta property="og:url" content="https://willwangcn.github.io/tech/awk-special-patterns.html">
 <meta property="og:site_name" content="敲代码的王二">
-<meta property="og:description" content="Better to walk 10,000 miles than to read 10,000 books.">
+<meta property="og:description" content="Awk12# how to use awkawk &#39;script&#39; filename  Special Pattern1&#x2F;pattern&#x2F; &amp;#123; actions &amp;#125;  Begin &amp; END123456awk &#39;BEGIN &amp;#123; actions &amp;#125;&#x2F;pattern&#x2F; &amp;#123; actions &amp;#125;&#x2F;pattern&#x2F; &amp;#123; action">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2016-11-19T07:28:57.000Z">
+<meta property="article:modified_time" content="2020-01-05T09:22:12.367Z">
 <meta property="article:author" content="Weiwei">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Shell">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://willwangcn.github.io/archives/2019/">
+<link rel="canonical" href="https://willwangcn.github.io/tech/awk-special-patterns.html">
 
 
 <script id="page-configurations">
@@ -65,11 +69,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome: false,
-    isPost: false
+    isPost: true
   };
 </script>
 
-  <title>Archive | 敲代码的王二</title>
+  <title>Awk Special Pattern - Begin & END | 敲代码的王二</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-83375610-1"></script>
     <script>
@@ -190,113 +194,179 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en-US">
+    <link itemprop="mainEntityOfPage" href="https://willwangcn.github.io/tech/awk-special-patterns.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Weiwei">
+      <meta itemprop="description" content="Better to walk 10,000 miles than to read 10,000 books.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="敲代码的王二">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Awk Special Pattern - Begin & END
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2016-11-19 15:28:57" itemprop="dateCreated datePublished" datetime="2016-11-19T15:28:57+08:00">2016-11-19</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/tech/" itemprop="url" rel="index">
+                    <span itemprop="name">Technology</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/tech/awk-special-patterns.html" class="post-meta-item leancloud_visitors" data-flag-title="Awk Special Pattern - Begin & END" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
   
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">Um..! 20 posts in total. Keep on posting.</span>
-      </div>
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Comments: </span>
+    
+    <a title="valine" href="/tech/awk-special-patterns.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/tech/awk-special-patterns.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2019</h1>
-    </div>
+        <h2 id="Awk"><a href="#Awk" class="headerlink" title="Awk"></a>Awk</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># how to use awk</span></span><br><span class="line">awk <span class="string">'script'</span> filename</span><br></pre></td></tr></table></figure>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+<h2 id="Special-Pattern"><a href="#Special-Pattern" class="headerlink" title="Special Pattern"></a>Special Pattern</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/pattern/ &#123; actions &#125;</span><br></pre></td></tr></table></figure>
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-11-25T22:49:14+08:00"
-              content="2019-11-25">
-          11-25
-        </time>
-      </div>
+<h2 id="Begin-amp-END"><a href="#Begin-amp-END" class="headerlink" title="Begin &amp; END"></a>Begin &amp; END</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">awk <span class="string">'</span></span><br><span class="line"><span class="string">BEGIN &#123; actions &#125;</span></span><br><span class="line"><span class="string">/pattern/ &#123; actions &#125;</span></span><br><span class="line"><span class="string">/pattern/ &#123; actions &#125;</span></span><br><span class="line"><span class="string">END &#123; actions &#125;</span></span><br><span class="line"><span class="string">'</span> filenames</span><br></pre></td></tr></table></figure>
 
-      <h2 class="post-title">
-          <a class="post-title-link" href="/bookreview/the-sentinel.html" itemprop="url">
-            <span itemprop="name">无言的宇宙 - 《岗哨》有感</span>
-          </a>
-      </h2>
+<ul>
+<li>BEGIN { actions }<br>在读取任何输入前执行一次 <strong>actions</strong></li>
+<li>END { actions }<br>读取所有输入之后执行一次 <strong>actions</strong></li>
+</ul>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># e.g.: calculate average of some column</span></span><br><span class="line">awk -F<span class="string">'\t'</span> <span class="string">'BEGIN&#123;sum = 0;&#125;&#123;sum += $1;&#125; END&#123;print sum/NR&#125;'</span> filename</span><br></pre></td></tr></table></figure>
 
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-11-20T22:51:08+08:00"
-              content="2019-11-20">
-          11-20
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/bookreview/the-kingdom-and-the-power.html" itemprop="url">
-            <span itemprop="name">王国与权力</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-11-07T22:50:35+08:00"
-              content="2019-11-07">
-          11-07
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/bookreview/ottoman-centuries.html" itemprop="url">
-            <span itemprop="name">奥斯曼帝国六百年</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-06-14T22:44:52+08:00"
-              content="2019-06-14">
-          06-14
-        </time>
-      </div>
-
-      <h2 class="post-title">
-          <a class="post-title-link" href="/bookreview/the-nine-billion-names-of-god.html" itemprop="url">
-            <span itemprop="name">神的九十亿个名字</span>
-          </a>
-      </h2>
-
-    </header>
-  </article>
-
+<h2 id="Notes"><a href="#Notes" class="headerlink" title="Notes"></a>Notes</h2><ul>
+<li><p>表达式 { 语句 }<br>对于<strong>表达式</strong>为真（即，非零或非空）的行，执行语句</p>
+</li>
+<li><p>/正则表达式/ { 语句 }<br>如果输入行包含字符串与<strong>正则表达式</strong>相匹配，则执行 语句</p>
+</li>
+<li><p>组合模式 { 语句 }<br>一个<strong>组合模式</strong>通过与（&amp;&amp;），或（||），非（|），以及括弧来组合多个表达式；对于组合模式为真的每个输入行，执行语句</p>
+</li>
+<li><p>模式1，模式2 { 语句 }<br>范围模式(range pattern)匹配从与<strong>模式1</strong>相匹配的行到与<strong>模式2</strong>相匹配的行（包含该行）之间的所有行，对于这些输入行，执行语句。</p>
+</li>
+</ul>
+<p>BEGIN和END不与其他模式组合。范围模式不可以是任何其他模式的一部分。BEGIN和END是仅有的必须搭配动作的模式。</p>
 
     </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/pay.png" alt="Weiwei WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/bitcoin.jpg" alt="Weiwei Bitcoin">
+        <p>Bitcoin</p>
+      </div>
+
   </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Weiwei
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://willwangcn.github.io/tech/awk-special-patterns.html" title="Awk Special Pattern - Begin &amp; END">https://willwangcn.github.io/tech/awk-special-patterns.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
+              <a href="/tags/Shell/" rel="tag"># Shell</a>
+          </div>
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/tech/xargs-command.html" rel="prev" title="xargs命令处理多参数">
+      <i class="fa fa-chevron-left"></i> xargs命令处理多参数
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/bookreview/the-minds-of-billy-millgan.html" rel="next" title="请尊重每一个人格">
+      请尊重每一个人格 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
   
   
   
 
-  
-
+  </div>
 
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -343,6 +413,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Awk"><span class="nav-number">1.</span> <span class="nav-text">Awk</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Special-Pattern"><span class="nav-number">2.</span> <span class="nav-text">Special Pattern</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Begin-amp-END"><span class="nav-number">3.</span> <span class="nav-text">Begin &amp; END</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">4.</span> <span class="nav-text">Example</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Notes"><span class="nav-number">5.</span> <span class="nav-text">Notes</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

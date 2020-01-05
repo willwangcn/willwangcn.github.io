@@ -147,6 +147,64 @@
   </entry>
   
   <entry>
+    <title>Awk Special Pattern - Begin &amp; END</title>
+    <link href="https://willwangcn.github.io/tech/awk-special-patterns.html"/>
+    <id>https://willwangcn.github.io/tech/awk-special-patterns.html</id>
+    <published>2016-11-19T07:28:57.000Z</published>
+    <updated>2020-01-05T09:22:12.367Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;Awk&quot;&gt;&lt;a href=&quot;#Awk&quot; class=&quot;headerlink&quot; title=&quot;Awk&quot;&gt;&lt;/a&gt;Awk&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Technology" scheme="https://willwangcn.github.io/categories/tech/"/>
+    
+    
+      <category term="Linux" scheme="https://willwangcn.github.io/tags/Linux/"/>
+    
+      <category term="Shell" scheme="https://willwangcn.github.io/tags/Shell/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>xargs命令处理多参数</title>
+    <link href="https://willwangcn.github.io/tech/xargs-command.html"/>
+    <id>https://willwangcn.github.io/tech/xargs-command.html</id>
+    <published>2016-10-28T09:29:55.000Z</published>
+    <updated>2020-01-05T09:25:06.905Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;xargs单参数&quot;&gt;&lt;a href=&quot;#xargs单参数&quot; class=&quot;headerlink&quot; title=&quot;xargs单参数&quot;&gt;&lt;/a&gt;xargs单参数&lt;/h2&gt;&lt;p&gt;xargs通常我们用来处理流数据，比如说批量kill
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Technology" scheme="https://willwangcn.github.io/categories/tech/"/>
+    
+    
+      <category term="Linux" scheme="https://willwangcn.github.io/tags/Linux/"/>
+    
+      <category term="Shell" scheme="https://willwangcn.github.io/tags/Shell/"/>
+    
+  </entry>
+  
+  <entry>
     <title>走下&quot;神坛&quot;的乔布斯</title>
     <link href="https://willwangcn.github.io/bookreview/becoming-steve-jobs.html"/>
     <id>https://willwangcn.github.io/bookreview/becoming-steve-jobs.html</id>
