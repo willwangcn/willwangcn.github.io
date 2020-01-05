@@ -55,7 +55,7 @@
 <meta property="og:description" content="xargs单参数xargs通常我们用来处理流数据，比如说批量kill python脚本，或者批量删除文件 12ps aux|grep python|awk &#39;&amp;#123;print $2&amp;#125;&#39;|xargs killfind . -name &quot;*.log&quot;|xargs rm -rf  xargs多参数通常情况下我们用xargs处理一个参数即可，但是有时候我们需要批量重命名或者批量改后缀。我们">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2016-10-28T09:29:55.000Z">
-<meta property="article:modified_time" content="2020-01-05T09:25:06.905Z">
+<meta property="article:modified_time" content="2020-01-05T09:28:07.540Z">
 <meta property="article:author" content="Weiwei">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Shell">
@@ -272,6 +272,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ps aux|grep python|awk <span class="string">'&#123;print $2&#125;'</span>|xargs <span class="built_in">kill</span></span><br><span class="line">find . -name <span class="string">"*.log"</span>|xargs rm -rf</span><br></pre></td></tr></table></figure>
 
 <h2 id="xargs多参数"><a href="#xargs多参数" class="headerlink" title="xargs多参数"></a>xargs多参数</h2><p>通常情况下我们用xargs处理一个参数即可，但是有时候我们需要批量重命名或者批量改后缀。我们则需要深入的了解xargs<br>-t 输出当前运行的命令<br>-I 表示把当前处理的参数用{}表示，这样后续的命令可以用{}来处理。</p>
+<a id="more"></a>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 批量改后缀</span></span><br><span class="line">find . -name <span class="string">"*.txt"</span>|awk -F<span class="string">'.txt'</span> <span class="string">'&#123;print $1&#125;'</span>|xargs -t -I &#123;&#125; cp &#123;&#125;.txt &#123;&#125;.<span class="built_in">log</span></span><br></pre></td></tr></table></figure>
 
 <ul>

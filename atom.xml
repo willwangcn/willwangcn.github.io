@@ -151,17 +151,15 @@
     <link href="https://willwangcn.github.io/tech/awk-special-patterns.html"/>
     <id>https://willwangcn.github.io/tech/awk-special-patterns.html</id>
     <published>2016-11-19T07:28:57.000Z</published>
-    <updated>2020-01-05T09:22:12.367Z</updated>
+    <updated>2020-01-05T09:28:29.816Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h2 id=&quot;Awk&quot;&gt;&lt;a href=&quot;#Awk&quot; class=&quot;headerlink&quot; title=&quot;Awk&quot;&gt;&lt;/a&gt;Awk&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td
-        
-      
+      &lt;h2 id=&quot;Awk&quot;&gt;&lt;a href=&quot;#Awk&quot; class=&quot;headerlink&quot; title=&quot;Awk&quot;&gt;&lt;/a&gt;Awk&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;# how to use awk&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;awk &lt;span class=&quot;string&quot;&gt;&#39;script&#39;&lt;/span&gt; filename&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;Special-Pattern&quot;&gt;&lt;a href=&quot;#Special-Pattern&quot; class=&quot;headerlink&quot; title=&quot;Special Pattern&quot;&gt;&lt;/a&gt;Special Pattern&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;/pattern/ &amp;#123; actions &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;Begin-amp-END&quot;&gt;&lt;a href=&quot;#Begin-amp-END&quot; class=&quot;headerlink&quot; title=&quot;Begin &amp;amp; END&quot;&gt;&lt;/a&gt;Begin &amp;amp; END&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;awk &lt;span class=&quot;string&quot;&gt;&#39;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;BEGIN &amp;#123; actions &amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;/pattern/ &amp;#123; actions &amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;/pattern/ &amp;#123; actions &amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;END &amp;#123; actions &amp;#125;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;string&quot;&gt;&#39;&lt;/span&gt; filenames&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -180,17 +178,14 @@
     <link href="https://willwangcn.github.io/tech/xargs-command.html"/>
     <id>https://willwangcn.github.io/tech/xargs-command.html</id>
     <published>2016-10-28T09:29:55.000Z</published>
-    <updated>2020-01-05T09:25:06.905Z</updated>
+    <updated>2020-01-05T09:28:07.540Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h2 id=&quot;xargs单参数&quot;&gt;&lt;a href=&quot;#xargs单参数&quot; class=&quot;headerlink&quot; title=&quot;xargs单参数&quot;&gt;&lt;/a&gt;xargs单参数&lt;/h2&gt;&lt;p&gt;xargs通常我们用来处理流数据，比如说批量kill
-        
-      
+      &lt;h2 id=&quot;xargs单参数&quot;&gt;&lt;a href=&quot;#xargs单参数&quot; class=&quot;headerlink&quot; title=&quot;xargs单参数&quot;&gt;&lt;/a&gt;xargs单参数&lt;/h2&gt;&lt;p&gt;xargs通常我们用来处理流数据，比如说批量kill python脚本，或者批量删除文件&lt;/p&gt;
+&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;ps aux|grep python|awk &lt;span class=&quot;string&quot;&gt;&#39;&amp;#123;print $2&amp;#125;&#39;&lt;/span&gt;|xargs &lt;span class=&quot;built_in&quot;&gt;kill&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;find . -name &lt;span class=&quot;string&quot;&gt;&quot;*.log&quot;&lt;/span&gt;|xargs rm -rf&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+
+&lt;h2 id=&quot;xargs多参数&quot;&gt;&lt;a href=&quot;#xargs多参数&quot; class=&quot;headerlink&quot; title=&quot;xargs多参数&quot;&gt;&lt;/a&gt;xargs多参数&lt;/h2&gt;&lt;p&gt;通常情况下我们用xargs处理一个参数即可，但是有时候我们需要批量重命名或者批量改后缀。我们则需要深入的了解xargs&lt;br&gt;-t 输出当前运行的命令&lt;br&gt;-I 表示把当前处理的参数用{}表示，这样后续的命令可以用{}来处理。&lt;/p&gt;
     
     </summary>
     

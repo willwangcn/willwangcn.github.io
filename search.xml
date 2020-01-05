@@ -112,7 +112,7 @@
 <h2 id="Special-Pattern"><a href="#Special-Pattern" class="headerlink" title="Special Pattern"></a>Special Pattern</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/pattern/ &#123; actions &#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="Begin-amp-END"><a href="#Begin-amp-END" class="headerlink" title="Begin &amp; END"></a>Begin &amp; END</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">awk <span class="string">'</span></span><br><span class="line"><span class="string">BEGIN &#123; actions &#125;</span></span><br><span class="line"><span class="string">/pattern/ &#123; actions &#125;</span></span><br><span class="line"><span class="string">/pattern/ &#123; actions &#125;</span></span><br><span class="line"><span class="string">END &#123; actions &#125;</span></span><br><span class="line"><span class="string">'</span> filenames</span><br></pre></td></tr></table></figure>
-
+<a id="more"></a>
 <ul>
 <li>BEGIN { actions }<br>在读取任何输入前执行一次 <strong>actions</strong></li>
 <li>END { actions }<br>读取所有输入之后执行一次 <strong>actions</strong></li>
@@ -146,6 +146,7 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ps aux|grep python|awk <span class="string">'&#123;print $2&#125;'</span>|xargs <span class="built_in">kill</span></span><br><span class="line">find . -name <span class="string">"*.log"</span>|xargs rm -rf</span><br></pre></td></tr></table></figure>
 
 <h2 id="xargs多参数"><a href="#xargs多参数" class="headerlink" title="xargs多参数"></a>xargs多参数</h2><p>通常情况下我们用xargs处理一个参数即可，但是有时候我们需要批量重命名或者批量改后缀。我们则需要深入的了解xargs<br>-t 输出当前运行的命令<br>-I 表示把当前处理的参数用{}表示，这样后续的命令可以用{}来处理。</p>
+<a id="more"></a>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 批量改后缀</span></span><br><span class="line">find . -name <span class="string">"*.txt"</span>|awk -F<span class="string">'.txt'</span> <span class="string">'&#123;print $1&#125;'</span>|xargs -t -I &#123;&#125; cp &#123;&#125;.txt &#123;&#125;.<span class="built_in">log</span></span><br></pre></td></tr></table></figure>
 
 <ul>
