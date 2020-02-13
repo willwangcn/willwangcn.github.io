@@ -1,6 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>手把手教你去掉电视的开机广告</title>
+    <url>/tech/how-to-block-ads-in-tv-and-tv-box.html</url>
+    <content><![CDATA[<h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><p>随着智能电视的普及率越来越高，越来越多的厂家不想错失广告的红利，会厚颜无耻的在电视开机或者关机的时候植入广告。而且在默认的电视首页也会发布各种广告，尤其是最近我的电视的开机广告时间越来越长，声音越来越大，已经忍无可忍了。我决定屏蔽掉这些广告。</p>
+<h4 id="前置条件"><a href="#前置条件" class="headerlink" title="前置条件"></a>前置条件</h4><ul>
+<li>Android TV or TV Box</li>
+<li>智能路由器 (以Merlin固件为例)</li>
+<li>熟悉简单的Linux操作，我也会尽量的写得通俗一些</li>
+</ul>
+<a id="more"></a>
+<h4 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h4><h5 id="打开路由器的ssh登录"><a href="#打开路由器的ssh登录" class="headerlink" title="打开路由器的ssh登录"></a>打开路由器的ssh登录</h5><ol>
+<li>打开梅林路由器页面：<a href="http://192.168.50.1/" target="_blank" rel="noopener">http://192.168.50.1/</a> </li>
+<li>系统管理 - 系统设置 - 按照下图勾选相关选项</li>
+</ol>
+<p><img src="/images/blockads/ssh.jpg" alt="SSH设置"></p>
+<h5 id="下载并安装tcpdump"><a href="#下载并安装tcpdump" class="headerlink" title="下载并安装tcpdump"></a>下载并安装tcpdump</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 在本机下载tcpdump</span></span><br><span class="line">curl https://willwangcn.github.io/downloads/tcpdump -o tcpdump</span><br><span class="line"><span class="comment"># 将tcpdump copy到路由器</span></span><br><span class="line">scp tcpdump admin@192.168.50.1:/koolshare/bin/</span><br><span class="line"><span class="comment"># 登录路由器</span></span><br><span class="line">ssh admin@192.168.50.1</span><br><span class="line"><span class="comment"># 修改tcpdump权限</span></span><br><span class="line">chmod +x /koolshare/bin/tcpdump</span><br></pre></td></tr></table></figure>
+
+<h5 id="采集抓包数据"><a href="#采集抓包数据" class="headerlink" title="采集抓包数据"></a>采集抓包数据</h5><p>由于路由器平常的流量都比较大，所以我们只抓取电视的流量包，首先我们从路由器中将电视或者电视盒子的IP记录下来。将电视或者盒子<code>彻底关闭</code>。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 在路由器执行，注意这里不要用重定向的方式记录，重定向写的只是标准输出打印的LOG，而 -w 写的是原始包，可以供wireshare分析</span></span><br><span class="line">tcpdump host tv_ip -w tv.pcap <span class="comment"># tv_ip 换成电视的真实ip</span></span><br></pre></td></tr></table></figure>
+
+<p>此时将电视<code>开机</code>，并<code>静静等待几分钟</code>，期间不要做任何操作</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ctrl + c 停止采集数据</span></span><br><span class="line"><span class="comment"># 将数据copy到自己机器上</span></span><br><span class="line">scp admin@192.168.50.1:~/tv.pcap .</span><br></pre></td></tr></table></figure>
+
+<h5 id="使用wireshark进行抓包分析"><a href="#使用wireshark进行抓包分析" class="headerlink" title="使用wireshark进行抓包分析"></a>使用wireshark进行抓包分析</h5><p>打开wireshare - 选择刚才下载的抓包数据打开 - 参照下图进行下面的步骤</p>
+<p><img src="/images/blockads/wireshark.jpg" alt="Wireshark"></p>
+<ol>
+<li>在wireshare的搜索栏中过滤http请求</li>
+<li>点击<code>每一条</code>交互信息</li>
+<li>查看具体的访问的域名并记录，我们只记录域名即可，比如图中的 <code>scs.openspeech.cn</code></li>
+</ol>
+<h5 id="使用路由器的进行过滤"><a href="#使用路由器的进行过滤" class="headerlink" title="使用路由器的进行过滤"></a>使用路由器的进行过滤</h5><p>方案一：使用防火墙过滤</p>
+<ol>
+<li>打开梅林路由器页面：<a href="http://192.168.50.1" target="_blank" rel="noopener">http://192.168.50.1</a></li>
+<li>防火墙 - 网址过滤 - 启用</li>
+<li>将刚才整理的网址列表一条一条的添加，如果你觉得某一个网站一级域名就想屏蔽也可以直接填写一级域名</li>
+</ol>
+<p>方案二：使用koolshare - koolproxy软件屏蔽</p>
+<ol>
+<li>打开梅林路由器页面：<a href="http://192.168.50.1" target="_blank" rel="noopener">http://192.168.50.1</a></li>
+<li>软件中心 - koolproxy - 自定义规则</li>
+</ol>
+<h5 id="重启路由器"><a href="#重启路由器" class="headerlink" title="重启路由器"></a>重启路由器</h5><p>重启路由器之后查看电视开机广告是否被屏蔽。<br>如果没有被屏蔽，建议恢复出厂设置。</p>
+<p><img src="../images/qrcode.jpg" alt="欢迎关注我的公众号"></p>
+<center>欢迎关注我的公众号</center>]]></content>
+      <categories>
+        <category>Technology</category>
+      </categories>
+      <tags>
+        <tag>Android TV</tag>
+        <tag>TV Box</tag>
+        <tag>Block ads</tag>
+        <tag>电视广告屏蔽</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>我的2019年书单推荐</title>
     <url>/bookreview/2019-recommended-reading-list.html</url>
     <content><![CDATA[<p>2019年已经结束，去年年初定下的36本书的目标基本完成，2020年也为自己定下一个小目标，也是至少读36本书。<br>在这里为大家推荐一下我在2019年读过的认为比较好的10本书。</p>
@@ -1205,7 +1259,8 @@ During the whole of a dull,dark soundless day
 <p>将脚本copy到启动目录</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo cp scripts/debian/init.d/shairport /etc/init.d/</span><br><span class="line">sudo service shairport stop</span><br><span class="line">sudo service shairport start</span><br><span class="line">sudo service shairport status</span><br></pre></td></tr></table></figure>
 <p>至此既可以完整使用Raspberry Pi来用作AirPlay播放音乐.<br><img src="/images/airplay/startshair.png" alt="start daemon"></p>
-<p><img src="../images/qrcode.jpg" alt="欢迎关注我的公众号"></p>
+<center>欢迎关注我的公众号</center>
+![欢迎关注我的公众号](../images/qrcode.jpg)
 ]]></content>
       <categories>
         <category>Technology</category>

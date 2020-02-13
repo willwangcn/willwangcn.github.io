@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://willwangcn.github.io/"/>
-  <updated>2020-01-08T15:01:17.132Z</updated>
+  <updated>2020-02-13T13:53:06.702Z</updated>
   <id>https://willwangcn.github.io/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>手把手教你去掉电视的开机广告</title>
+    <link href="https://willwangcn.github.io/tech/how-to-block-ads-in-tv-and-tv-box.html"/>
+    <id>https://willwangcn.github.io/tech/how-to-block-ads-in-tv-and-tv-box.html</id>
+    <published>2020-02-13T12:42:13.000Z</published>
+    <updated>2020-02-13T13:53:06.702Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;背景&quot;&gt;&lt;a href=&quot;#背景&quot; class=&quot;headerlink&quot; title=&quot;背景&quot;&gt;&lt;/a&gt;背景&lt;/h4&gt;&lt;p&gt;随着智能电视的普及率越来越高，越来越多的厂家不想错失广告的红利，会厚颜无耻的在电视开机或者关机的时候植入广告。而且在默认的电视首页也会发布各种广告，尤其是最近我的电视的开机广告时间越来越长，声音越来越大，已经忍无可忍了。我决定屏蔽掉这些广告。&lt;/p&gt;
+&lt;h4 id=&quot;前置条件&quot;&gt;&lt;a href=&quot;#前置条件&quot; class=&quot;headerlink&quot; title=&quot;前置条件&quot;&gt;&lt;/a&gt;前置条件&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;Android TV or TV Box&lt;/li&gt;
+&lt;li&gt;智能路由器 (以Merlin固件为例)&lt;/li&gt;
+&lt;li&gt;熟悉简单的Linux操作，我也会尽量的写得通俗一些&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="Technology" scheme="https://willwangcn.github.io/categories/tech/"/>
+    
+    
+      <category term="Android TV" scheme="https://willwangcn.github.io/tags/Android-TV/"/>
+    
+      <category term="TV Box" scheme="https://willwangcn.github.io/tags/TV-Box/"/>
+    
+      <category term="Block ads" scheme="https://willwangcn.github.io/tags/Block-ads/"/>
+    
+      <category term="电视广告屏蔽" scheme="https://willwangcn.github.io/tags/%E7%94%B5%E8%A7%86%E5%B9%BF%E5%91%8A%E5%B1%8F%E8%94%BD/"/>
+    
+  </entry>
   
   <entry>
     <title>我的2019年书单推荐</title>
@@ -528,47 +560,6 @@
       <category term="小说" scheme="https://willwangcn.github.io/tags/%E5%B0%8F%E8%AF%B4/"/>
     
       <category term="段子手" scheme="https://willwangcn.github.io/tags/%E6%AE%B5%E5%AD%90%E6%89%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【笔记&amp;短评】黑客与画家</title>
-    <link href="https://willwangcn.github.io/bookreview/hackers-painters.html"/>
-    <id>https://willwangcn.github.io/bookreview/hackers-painters.html</id>
-    <published>2016-08-30T13:50:55.000Z</published>
-    <updated>2020-01-02T15:17:01.210Z</updated>
-    
-    <summary type="html">
-    
-      &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;&lt;font color=&#39;red&#39;&gt;本文首发于我的公众号: dark_forests，请扫描文章尾部的二维码直接关注，谢谢。&lt;/font&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;本书是硅谷创业之父Paul Graham 的文集，主要介绍黑客即优秀程序员的爱好和动机，讨论黑客成长、黑客对世界的贡献以及编程语言和黑客工作方法等所有对计算机时代感兴趣的人的一些话题。书中的内容不但有助于了解计算机编程的本质、互联网行业的规则，还会帮助读者了解我们这个时代，迫使读者独立思考。&lt;br&gt;本书适合所有程序员和互联网创业者，也适合一切对计算机行业感兴趣的读者。&lt;/p&gt;
-&lt;h2 id=&quot;短评&quot;&gt;&lt;a href=&quot;#短评&quot; class=&quot;headerlink&quot; title=&quot;短评&quot;&gt;&lt;/a&gt;短评&lt;/h2&gt;&lt;p&gt;看完这本书已经很长时间了，具体总结一下作者的观点：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;书呆子（nerd）将改变世界。&lt;/li&gt;
-&lt;li&gt;鼓励创业，但是要尽快将小有成就的创业公司卖掉。&lt;/li&gt;
-&lt;li&gt;付出与回报总是会成正比。&lt;/li&gt;
-&lt;li&gt;正常的严肃的有追求的黑客应该考虑学习lisp语言。&lt;/li&gt;
-&lt;li&gt;Java已经走到了进化的尽头，lisp语言将一统天下。&lt;/li&gt;
-&lt;li&gt;我就是推崇lisp语言。&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-    
-      <category term="Book Review" scheme="https://willwangcn.github.io/categories/bookreview/"/>
-    
-    
-      <category term="黑客" scheme="https://willwangcn.github.io/tags/%E9%BB%91%E5%AE%A2/"/>
-    
-      <category term="创业" scheme="https://willwangcn.github.io/tags/%E5%88%9B%E4%B8%9A/"/>
-    
-      <category term="lisp" scheme="https://willwangcn.github.io/tags/lisp/"/>
-    
-      <category term="geek" scheme="https://willwangcn.github.io/tags/geek/"/>
-    
-      <category term="函数式编程" scheme="https://willwangcn.github.io/tags/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   

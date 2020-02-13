@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="google-site-verification" content="BgMbMRTapMrRuLSFXuy9L3AktWu_YkXlCY6abB_Fxck">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('https://willwangcn.github.io').hostname,
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":true,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":"valine","storage":true,"lazyload":false,"nav":null,"activeClass":"valine"},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="背景随着智能电视的普及率越来越高，越来越多的厂家不想错失广告的红利，会厚颜无耻的在电视开机或者关机的时候植入广告。而且在默认的电视首页也会发布各种广告，尤其是最近我的电视的开机广告时间越来越长，声音越来越大，已经忍无可忍了。我决定屏蔽掉这些广告。 前置条件 Android TV or TV Box 智能路由器 (以Merlin固件为例) 熟悉简单的Linux操作，我也会尽量的写得通俗一些">
+<meta property="og:type" content="article">
+<meta property="og:title" content="手把手教你去掉电视的开机广告">
+<meta property="og:url" content="https://willwangcn.github.io/tech/how-to-block-ads-in-tv-and-tv-box.html">
+<meta property="og:site_name" content="敲代码的王二">
+<meta property="og:description" content="背景随着智能电视的普及率越来越高，越来越多的厂家不想错失广告的红利，会厚颜无耻的在电视开机或者关机的时候植入广告。而且在默认的电视首页也会发布各种广告，尤其是最近我的电视的开机广告时间越来越长，声音越来越大，已经忍无可忍了。我决定屏蔽掉这些广告。 前置条件 Android TV or TV Box 智能路由器 (以Merlin固件为例) 熟悉简单的Linux操作，我也会尽量的写得通俗一些">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://willwangcn.github.io/images/blockads/ssh.jpg">
+<meta property="og:image" content="https://willwangcn.github.io/images/blockads/wireshark.jpg">
+<meta property="og:image" content="https://willwangcn.github.io/images/qrcode.jpg">
+<meta property="article:published_time" content="2020-02-13T12:42:13.000Z">
+<meta property="article:modified_time" content="2020-02-13T13:53:06.702Z">
+<meta property="article:author" content="Weiwei">
+<meta property="article:tag" content="Android TV">
+<meta property="article:tag" content="TV Box">
+<meta property="article:tag" content="Block ads">
+<meta property="article:tag" content="电视广告屏蔽">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://willwangcn.github.io/images/blockads/ssh.jpg">
+
+<link rel="canonical" href="https://willwangcn.github.io/tech/how-to-block-ads-in-tv-and-tv-box.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>手把手教你去掉电视的开机广告 | 敲代码的王二</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-83375610-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-83375610-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="敲代码的王二" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">敲代码的王二</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="en-US">
+    <link itemprop="mainEntityOfPage" href="https://willwangcn.github.io/tech/how-to-block-ads-in-tv-and-tv-box.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Weiwei">
+      <meta itemprop="description" content="Better to walk 10,000 miles than to read 10,000 books.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="敲代码的王二">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          手把手教你去掉电视的开机广告
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2020-02-13 20:42:13" itemprop="dateCreated datePublished" datetime="2020-02-13T20:42:13+08:00">2020-02-13</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/tech/" itemprop="url" rel="index">
+                    <span itemprop="name">Technology</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span id="/tech/how-to-block-ads-in-tv-and-tv-box.html" class="post-meta-item leancloud_visitors" data-flag-title="手把手教你去掉电视的开机广告" title="Views">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">Views: </span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Comments: </span>
+    
+    <a title="valine" href="/tech/how-to-block-ads-in-tv-and-tv-box.html#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/tech/how-to-block-ads-in-tv-and-tv-box.html" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><p>随着智能电视的普及率越来越高，越来越多的厂家不想错失广告的红利，会厚颜无耻的在电视开机或者关机的时候植入广告。而且在默认的电视首页也会发布各种广告，尤其是最近我的电视的开机广告时间越来越长，声音越来越大，已经忍无可忍了。我决定屏蔽掉这些广告。</p>
+<h4 id="前置条件"><a href="#前置条件" class="headerlink" title="前置条件"></a>前置条件</h4><ul>
+<li>Android TV or TV Box</li>
+<li>智能路由器 (以Merlin固件为例)</li>
+<li>熟悉简单的Linux操作，我也会尽量的写得通俗一些</li>
+</ul>
+<a id="more"></a>
+<h4 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h4><h5 id="打开路由器的ssh登录"><a href="#打开路由器的ssh登录" class="headerlink" title="打开路由器的ssh登录"></a>打开路由器的ssh登录</h5><ol>
+<li>打开梅林路由器页面：<a href="http://192.168.50.1/" target="_blank" rel="noopener">http://192.168.50.1/</a> </li>
+<li>系统管理 - 系统设置 - 按照下图勾选相关选项</li>
+</ol>
+<p><img src="/images/blockads/ssh.jpg" alt="SSH设置"></p>
+<h5 id="下载并安装tcpdump"><a href="#下载并安装tcpdump" class="headerlink" title="下载并安装tcpdump"></a>下载并安装tcpdump</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在本机下载tcpdump</span></span><br><span class="line">curl https://willwangcn.github.io/downloads/tcpdump -o tcpdump</span><br><span class="line"><span class="comment"># 将tcpdump copy到路由器</span></span><br><span class="line">scp tcpdump admin@192.168.50.1:/koolshare/bin/</span><br><span class="line"><span class="comment"># 登录路由器</span></span><br><span class="line">ssh admin@192.168.50.1</span><br><span class="line"><span class="comment"># 修改tcpdump权限</span></span><br><span class="line">chmod +x /koolshare/bin/tcpdump</span><br></pre></td></tr></table></figure>
+
+<h5 id="采集抓包数据"><a href="#采集抓包数据" class="headerlink" title="采集抓包数据"></a>采集抓包数据</h5><p>由于路由器平常的流量都比较大，所以我们只抓取电视的流量包，首先我们从路由器中将电视或者电视盒子的IP记录下来。将电视或者盒子<code>彻底关闭</code>。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在路由器执行，注意这里不要用重定向的方式记录，重定向写的只是标准输出打印的LOG，而 -w 写的是原始包，可以供wireshare分析</span></span><br><span class="line">tcpdump host tv_ip -w tv.pcap <span class="comment"># tv_ip 换成电视的真实ip</span></span><br></pre></td></tr></table></figure>
+
+<p>此时将电视<code>开机</code>，并<code>静静等待几分钟</code>，期间不要做任何操作</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ctrl + c 停止采集数据</span></span><br><span class="line"><span class="comment"># 将数据copy到自己机器上</span></span><br><span class="line">scp admin@192.168.50.1:~/tv.pcap .</span><br></pre></td></tr></table></figure>
+
+<h5 id="使用wireshark进行抓包分析"><a href="#使用wireshark进行抓包分析" class="headerlink" title="使用wireshark进行抓包分析"></a>使用wireshark进行抓包分析</h5><p>打开wireshare - 选择刚才下载的抓包数据打开 - 参照下图进行下面的步骤</p>
+<p><img src="/images/blockads/wireshark.jpg" alt="Wireshark"></p>
+<ol>
+<li>在wireshare的搜索栏中过滤http请求</li>
+<li>点击<code>每一条</code>交互信息</li>
+<li>查看具体的访问的域名并记录，我们只记录域名即可，比如图中的 <code>scs.openspeech.cn</code></li>
+</ol>
+<h5 id="使用路由器的进行过滤"><a href="#使用路由器的进行过滤" class="headerlink" title="使用路由器的进行过滤"></a>使用路由器的进行过滤</h5><p>方案一：使用防火墙过滤</p>
+<ol>
+<li>打开梅林路由器页面：<a href="http://192.168.50.1" target="_blank" rel="noopener">http://192.168.50.1</a></li>
+<li>防火墙 - 网址过滤 - 启用</li>
+<li>将刚才整理的网址列表一条一条的添加，如果你觉得某一个网站一级域名就想屏蔽也可以直接填写一级域名</li>
+</ol>
+<p>方案二：使用koolshare - koolproxy软件屏蔽</p>
+<ol>
+<li>打开梅林路由器页面：<a href="http://192.168.50.1" target="_blank" rel="noopener">http://192.168.50.1</a></li>
+<li>软件中心 - koolproxy - 自定义规则</li>
+</ol>
+<h5 id="重启路由器"><a href="#重启路由器" class="headerlink" title="重启路由器"></a>重启路由器</h5><p>重启路由器之后查看电视开机广告是否被屏蔽。<br>如果没有被屏蔽，建议恢复出厂设置。</p>
+<p><img src="../images/qrcode.jpg" alt="欢迎关注我的公众号"></p>
+<center>欢迎关注我的公众号</center>
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div></div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    Donate
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/pay.png" alt="Weiwei WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/bitcoin.jpg" alt="Weiwei Bitcoin">
+        <p>Bitcoin</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:  </strong>Weiwei
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link: </strong>
+    <a href="https://willwangcn.github.io/tech/how-to-block-ads-in-tv-and-tv-box.html" title="手把手教你去掉电视的开机广告">https://willwangcn.github.io/tech/how-to-block-ads-in-tv-and-tv-box.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Android-TV/" rel="tag"># Android TV</a>
+              <a href="/tags/TV-Box/" rel="tag"># TV Box</a>
+              <a href="/tags/Block-ads/" rel="tag"># Block ads</a>
+              <a href="/tags/%E7%94%B5%E8%A7%86%E5%B9%BF%E5%91%8A%E5%B1%8F%E8%94%BD/" rel="tag"># 电视广告屏蔽</a>
+          </div>
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/bookreview/2019-recommended-reading-list.html" rel="prev" title="我的2019年书单推荐">
+      <i class="fa fa-chevron-left"></i> 我的2019年书单推荐
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#前置条件"><span class="nav-number">2.</span> <span class="nav-text">前置条件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#操作步骤"><span class="nav-number">3.</span> <span class="nav-text">操作步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#打开路由器的ssh登录"><span class="nav-number">3.1.</span> <span class="nav-text">打开路由器的ssh登录</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#下载并安装tcpdump"><span class="nav-number">3.2.</span> <span class="nav-text">下载并安装tcpdump</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#采集抓包数据"><span class="nav-number">3.3.</span> <span class="nav-text">采集抓包数据</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用wireshark进行抓包分析"><span class="nav-number">3.4.</span> <span class="nav-text">使用wireshark进行抓包分析</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#使用路由器的进行过滤"><span class="nav-number">3.5.</span> <span class="nav-text">使用路由器的进行过滤</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#重启路由器"><span class="nav-number">3.6.</span> <span class="nav-text">重启路由器</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Weiwei"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Weiwei</p>
+  <div class="site-description" itemprop="description">Better to walk 10,000 miles than to read 10,000 books.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/318760999" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;318760999" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://instagram.com/willwangv" title="Instagram → https:&#x2F;&#x2F;instagram.com&#x2F;willwangv" rel="noopener" target="_blank"><i class="fa fa-fw fa-instagram"></i>Instagram</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml"><i class="fa fa-fw fa-rss"></i>RSS</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+    
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 2016 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Weiwei</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        Total Views: <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+  <script>
+  function leancloudSelector(url) {
+    return document.getElementById(url).querySelector('.leancloud-visitors-count');
+  }
+  if (CONFIG.page.isPost) {
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = visitors.getAttribute('id').trim();
+      var title = visitors.getAttribute('data-flag-title').trim();
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .then(response => response.json())
+              .then(() => {
+                leancloudSelector(url).innerText = counter.time + 1;
+              })
+              .catch(error => {
+                console.log('Failed to save visitor count', error);
+              })
+          } else {
+              Counter('post', '/classes/Counter', { title: title, url: url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.log('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  } else {
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return element.getAttribute('id').trim();
+      });
+
+      Counter('get', `/classes/Counter?where=${JSON.stringify({ url: { '$in': entries } })}`)
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length === 0) {
+            document.querySelectorAll('.leancloud_visitors .leancloud-visitors-count').forEach(element => {
+              element.innerText = 0;
+            });
+            return;
+          }
+          for (let item of results) {
+            let { url, time } = item;
+            leancloudSelector(url).innerText = time;
+          }
+          for (let url of entries) {
+            var element = leancloudSelector(url);
+            if (element.innerText == '') {
+              element.innerText = 0;
+            }
+          }
+        })
+        .catch(error => {
+          console.log('LeanCloud Counter Error', error);
+        });
+    }
+  }
+
+  fetch('https://app-router.leancloud.cn/2/route?appId=2inQvetpJOU9pFYSTnAmgeA6-gzGzoHsz')
+    .then(response => response.json())
+    .then(({ api_server }) => {
+      var Counter = (method, url, data) => {
+        return fetch(`https://${api_server}/1.1${url}`, {
+          method: method,
+          headers: {
+            'X-LC-Id': '2inQvetpJOU9pFYSTnAmgeA6-gzGzoHsz',
+            'X-LC-Key': 'evVnTRdfNeeDNCaHk5kAdpdV',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el: '#valine-comments',
+      verify: false,
+      notify: true,
+      appId: '2inQvetpJOU9pFYSTnAmgeA6-gzGzoHsz',
+      appKey: 'evVnTRdfNeeDNCaHk5kAdpdV',
+      placeholder: "Please comment here. Markdown is supported.",
+      avatar: 'mm',
+      meta: guest,
+      pageSize: '10' || 10,
+      visitor: false,
+      lang: 'en' || 'zh-cn',
+      path: location.pathname,
+      recordIP: true,
+      serverURLs: ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
