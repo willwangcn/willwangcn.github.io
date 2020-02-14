@@ -58,7 +58,7 @@
 <meta property="og:image" content="https://willwangcn.github.io/images/blockads/wireshark.jpg">
 <meta property="og:image" content="https://willwangcn.github.io/images/qrcode.jpg">
 <meta property="article:published_time" content="2020-02-13T12:42:13.000Z">
-<meta property="article:modified_time" content="2020-02-13T13:53:06.702Z">
+<meta property="article:modified_time" content="2020-02-14T02:29:18.074Z">
 <meta property="article:author" content="Weiwei">
 <meta property="article:tag" content="Android TV">
 <meta property="article:tag" content="TV Box">
@@ -288,11 +288,19 @@
 <p><img src="/images/blockads/ssh.jpg" alt="SSH设置"></p>
 <h5 id="下载并安装tcpdump"><a href="#下载并安装tcpdump" class="headerlink" title="下载并安装tcpdump"></a>下载并安装tcpdump</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在本机下载tcpdump</span></span><br><span class="line">curl https://willwangcn.github.io/downloads/tcpdump -o tcpdump</span><br><span class="line"><span class="comment"># 将tcpdump copy到路由器</span></span><br><span class="line">scp tcpdump admin@192.168.50.1:/koolshare/bin/</span><br><span class="line"><span class="comment"># 登录路由器</span></span><br><span class="line">ssh admin@192.168.50.1</span><br><span class="line"><span class="comment"># 修改tcpdump权限</span></span><br><span class="line">chmod +x /koolshare/bin/tcpdump</span><br></pre></td></tr></table></figure>
 
-<h5 id="采集抓包数据"><a href="#采集抓包数据" class="headerlink" title="采集抓包数据"></a>采集抓包数据</h5><p>由于路由器平常的流量都比较大，所以我们只抓取电视的流量包，首先我们从路由器中将电视或者电视盒子的IP记录下来。将电视或者盒子<code>彻底关闭</code>。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在路由器执行，注意这里不要用重定向的方式记录，重定向写的只是标准输出打印的LOG，而 -w 写的是原始包，可以供wireshare分析</span></span><br><span class="line">tcpdump host tv_ip -w tv.pcap <span class="comment"># tv_ip 换成电视的真实ip</span></span><br></pre></td></tr></table></figure>
+<h5 id="采集抓包数据"><a href="#采集抓包数据" class="headerlink" title="采集抓包数据"></a>采集抓包数据</h5><p>由于路由器平常的流量都比较大，所以我们只抓取电视的流量包</p>
+<ol>
+<li>我们从路由器中页面中找到电视或者电视盒子的<code>IP</code>，并记录下来。</li>
+<li>将电视或者盒子<code>彻底关闭</code>。</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在路由器执行，注意这里不要用重定向的方式记录</span></span><br><span class="line"><span class="comment"># 重定向写的只是标准输出打印的LOG，</span></span><br><span class="line"><span class="comment"># 而 -w 写的是原始包，可以供wireshark分析</span></span><br><span class="line">tcpdump host ip -w tv.pcap <span class="comment"># ip换成上面记录的电视的真实ip</span></span><br></pre></td></tr></table></figure>
 
-<p>此时将电视<code>开机</code>，并<code>静静等待几分钟</code>，期间不要做任何操作</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ctrl + c 停止采集数据</span></span><br><span class="line"><span class="comment"># 将数据copy到自己机器上</span></span><br><span class="line">scp admin@192.168.50.1:~/tv.pcap .</span><br></pre></td></tr></table></figure>
+<ol>
+<li>此时将电视<code>开机</code>，并<code>静静等待几分钟</code>，期间不要做任何操作</li>
+<li>ctrl + c 停止采集数据</li>
+<li>从本机将数据从路由器copy到自己机器上</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp admin@192.168.50.1:~/tv.pcap .</span><br></pre></td></tr></table></figure>
 
 <h5 id="使用wireshark进行抓包分析"><a href="#使用wireshark进行抓包分析" class="headerlink" title="使用wireshark进行抓包分析"></a>使用wireshark进行抓包分析</h5><p>打开wireshare - 选择刚才下载的抓包数据打开 - 参照下图进行下面的步骤</p>
 <p><img src="/images/blockads/wireshark.jpg" alt="Wireshark"></p>
